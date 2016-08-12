@@ -1,0 +1,3 @@
+default: spades.py --dataset ${DATA} -o ${TMP}
+single-cell: spades.py --sc --dataset ${DATA} -o ${TMP}
+careful: spades.py --careful --dataset ${DATA} -o ${TMP}
