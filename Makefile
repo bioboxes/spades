@@ -2,10 +2,10 @@ env    = PATH=./env/bin:${PATH}
 image  = biobox_testing/spades
 
 ssh: .image env
-	$(env) biobox login short_read_assembler $(image)
+	@$(env) biobox login short_read_assembler $(image)
 
-test: .image
-	$(env) biobox verify short_read_assembler $(image) --verbose
+test: .image env
+	@$(env) biobox verify short_read_assembler $(image) --verbose
 
 build: .image
 
