@@ -1,4 +1,6 @@
-FROM bioboxes/biobox-minimal-base@sha256:908bc44aaa5de9a9b519cc3548b7d1e37c8f4f71a815f43ea71091e2980e9974
+FROM bioboxes/biobox-minimal-base@sha256:b73428dee585232350ce0e30d22f97d7d22921b74b81a4196d246ca2da3cb0f5
+
+ENV SPADES_VERSION 3.10.0
 
 ADD image/bin    /usr/local/bin
 ADD image/share  /usr/local/share
