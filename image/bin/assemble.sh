@@ -22,3 +22,5 @@ arguments:
       value: contigs.fa
       type: contigs
 EOF
+
+rm -rf /tmp/tmp.*
