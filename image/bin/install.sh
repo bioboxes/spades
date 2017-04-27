@@ -5,16 +5,16 @@ set -o nounset
 set -o xtrace
 
 BUILD="wget ca-certificates"
-ESSENTIAL="python-minimal python-setuptools"
-
-URL="http://spades.bioinf.spbau.ru/release${SPADES_VERSION}/SPAdes-${SPADES_VERSION}-Linux.tar.gz"
+ESSENTIAL="python-minimal python-setuptools openjdk-7-jre-headless"
 
 # Build dependencies
 apt-get update --yes
 apt-get install --yes --no-install-recommends ${BUILD}
 
-fetch_archive.sh ${URL} spades
-ln -s /usr/local/spades/bin/* /usr/local/bin/
+export PATH=${PATH}:/usr/local/bin/install
+
+spades.sh
+bbtools.sh
 
 # Clean up dependencies
 apt-get autoremove --purge --yes ${BUILD}
