@@ -14,5 +14,5 @@ build: .image
 	@touch $@
 
 env:
-	@virtualenv -p python3 $@
+	@python3 -m venv env
 	@$@/bin/pip install biobox_cli
