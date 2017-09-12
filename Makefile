@@ -6,6 +6,8 @@ ssh: .image env
 
 test: .image env
 	@$(env) biobox verify short_read_assembler $(image) --verbose
+	@$(env) biobox verify short_read_assembler $(image) --verbose --task=merge
+	@$(env) biobox verify short_read_assembler $(image) --verbose --task=careful
 
 build: .image
 
