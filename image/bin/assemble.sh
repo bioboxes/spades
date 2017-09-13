@@ -10,6 +10,10 @@ TMP=$(mktemp -d)
 DATA=$(mktemp -d)/input.yaml
 
 yaml2json < ${INPUT} | jq --from-file /usr/local/share/spades_input.jq > ${DATA}
+
+export MEM=$(available_ram.py)
+export ARGS="--dataset ${DATA} -o ${TMP} --threads $(nproc) --memory ${MEM} --phred-offset 33"
+
 eval ${CMD}
 
 cp ${TMP}/contigs.fasta ${OUTPUT}/contigs.fa
