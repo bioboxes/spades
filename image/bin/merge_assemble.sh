@@ -15,10 +15,12 @@ bbmerge-auto.sh \
 	prefilter=1 \
 	prealloc
 
+# Check which files contain reads
+FILES=()
+[[ ! -s ${UNMERGED} ]] || FILES+=(" --pe1-12 ${UNMERGED}")
+[[ ! -s ${MERGED} ]] || FILES+=(" --s2 ${MERGED}")
+
 spades.py \
-	--only-assembler \
-	-k25,55,95,125 \
-	--phred-offset 33 \
-	-s ${MERGED} \
-	--12 ${UNMERGED} \
-	-o $1
+	${FILES[@]} \
+	${ARGS} \
+	-k25,55,95,125

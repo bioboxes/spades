@@ -1,5 +1,5 @@
-default: spades.py --dataset ${DATA} -o ${TMP}
-single-cell: spades.py --sc --dataset ${DATA} -o ${TMP}
-metagenome: spades.py --meta --dataset ${DATA} -o ${TMP}
-careful: spades.py --careful --dataset ${DATA} -o ${TMP}
-merge: merge_assemble.sh ${TMP}
+default: spades.py ${ARGS}
+single-cell: spades.py --sc ${ARGS}
+metagenome: spades.py --meta ${ARGS}
+careful: spades.py --careful ${ARGS}
+merge: merge_assemble.sh
